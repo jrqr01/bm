@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMG隧道口高陡边坡 InSAR 监测报告</title>
+<style>
+  body { font-family: "Microsoft YaHei", "SimHei", sans-serif; margin: 0; background: #fafafa; color: #222; }
+  .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 36px 42px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  h1 { font-size: 26px; color: #1a3d6e; border-bottom: 3px solid #2f6fad; padding-bottom: 10px; margin-top: 0; text-align: center; }
+  .subtitle { text-align: center; font-size: 15px; color: #555; margin: 8px 0 4px; }
+  h2 { font-size: 18px; color: #1a3d6e; margin-top: 34px; border-left: 6px solid #2f6fad; padding-left: 12px; }
+  h3 { font-size: 15px; color: #333; margin-top: 24px; }
+  p { line-height: 1.75; font-size: 14px; text-align: justify; margin: 8px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13px; }
+  th { background: #e8f0f8; color: #1a3d6e; padding: 9px 8px; border: 1px solid #c9d8e8; text-align: center; }
+  td { padding: 8px; border: 1px solid #d6dde5; text-align: center; }
+  td.rowhead { background: #f2f7fc; font-weight: 600; color: #1a3d6e; }
+  tr:nth-child(even) { background: #f7fafd; }
+  tr:nth-child(even) td.rowhead { background: #eaf1f8; }
+  .warn { color: #c0392b; font-weight: 600; }
+  .ok { color: #27ae60; font-weight: 600; }
+  .note { background: #fff8e6; border-left: 4px solid #f39c12; padding: 12px 14px; margin: 14px 0; font-size: 13px; line-height: 1.75; }
+  .box { background: #f1f6fb; border-left: 4px solid #2f6fad; padding: 12px 14px; margin: 14px 0; font-size: 13px; line-height: 1.75; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #ddd; }
+  figcaption { font-size: 12px; color: #555; margin-top: 6px; }
+  figcaption.datalink { font-size: 14.5px; color: #333; margin-top: 8px; }
+  .small { font-size: 12px; color: #555; }
+  .tbl-title { text-align: center; font-weight: 600; color: #1a3d6e; font-size: 13.5px; margin: 18px 0 2px; }
+  .formula { text-align: center; font-size: 15px; margin: 12px 0; font-family: "Times New Roman", serif; }
+  ul, ol { line-height: 1.75; font-size: 14px; }
+  ul li, ol li { margin: 6px 0; }
+  .right { text-align: right; }
+  .toc { background: #f1f6fb; border-left: 4px solid #2f6fad; padding: 14px 18px; margin: 20px 0; font-size: 13.5px; }
+  .toc b { color: #1a3d6e; }
+  .toc ul { list-style: none; margin: 6px 0 0 0; padding: 0; column-count: 2; }
+  .toc li { margin: 4px 0; }
+  .toc a { color: #2f6fad; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  a.xlink { color: #2f6fad; text-decoration: underline; font-weight: 600; }
+  a.xlink:hover { color: #c0392b; }
+  .cover-meta { margin: 16px auto 0; width: 72%; }
+  .endblock { margin-top: 40px; padding-top: 16px; border-top: 1px solid #d6dde5; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>DMG隧道口高陡边坡 InSAR 监测报告</h1>
+<p class="right small">编制单位：启睿方宇(成都)科技有限公司&nbsp;&nbsp;&nbsp;编制日期：2026 年 10 月 07 日</p>
+<table class="cover-meta">
+<tr><td class="rowhead" style="width:32%">监测对象</td><td style="text-align:left">DMG隧道口 1、隧道口 2 高陡边坡</td></tr>
+<tr><td class="rowhead" style="width:32%">监测周期</td><td style="text-align:left">20260813 — 20260930（48 天）</td></tr>
+<tr><td class="rowhead" style="width:32%">影像景数</td><td style="text-align:left">5 景 NISAR L 波段 RSLC（12 天重访）</td></tr>
+<tr><td class="rowhead" style="width:32%">监测方法</td><td style="text-align:left">D-InSAR 干涉对时序累积分析</td></tr>
+</table>
+<div class="toc"><b>目　录</b>
+<ul>
+<li><a href="#sec1">1. 项目概况</a></li>
+<li><a href="#sec2">2. 监测要素</a></li>
+<li><a href="#sec3">3. 研究区概况</a></li>
+<li><a href="#sec4">4. 数据与方法</a></li>
+<li><a href="#sec5">5. 成果与质量控制</a></li>
+<li><a href="#sec6">6. 结论与建议</a></li>
+<li><a href="#sec7">7. 特别说明</a></li>
+</ul>
+</div>
+<h2 id="sec1">1. 项目概况</h2>
+<p>DMG隧道口 1、隧道口 2 位于西藏高原的高陡边坡区，坡体陡峻、地质条件复杂，边坡失稳对隧道施工与运营安全构成潜在威胁。为掌握边坡近期的形变状态，采用合成孔径雷达干涉测量（InSAR）技术，利用 NISAR 卫星L 波段（波长约 23.8 cm）升轨数据，以 D-InSAR 干涉对时序累积方法对两处边坡开展形变监测。</p>
+<p>本次监测周期为 2026 年 08 月 13 日至 2026 年 09 月 30 日，时间跨度 48 天，共使用 5 景影像、构成 5 个干涉对（4 个 12 天链式对 + 1 个 24 天独立对）。其中 24 天独立对用于闭合差检验，是衡量处理链路自洽性的关键冗余观测。监测成果以 LOS（雷达视线向）形变给出，并同步给出相干性、相位精度、闭合差等质量指标，为边坡状态评估提供数据支撑。</p>
+<h2 id="sec2">2. 监测要素</h2>
+<p>（1）研究区范围文件：0km.kml、隧道口1矩形_WGS84.kml、隧道口2矩形_WGS84.kml。</p>
+<figure>
+  <img src="images/fig01.png" alt="图 1　研究区范围与 NISAR 卫星数据下载区域" loading="lazy">
+  <figcaption>图 1　研究区范围与 NISAR 卫星数据下载区域</figcaption>
+</figure><p>（2）形变符号约定：本报告 LOS 形变以“远离卫星为正（+）、靠近卫星为负（−）”表示。如需换算为垂直方向形变，按 d = Δr / cosθ 计算，θ 取逐点入射角 ILOS。</p>
+<p>（3）精度评定口径：本报告边坡形变未设置等级阈值，以 InSAR 自身精度（相位精度中位数）、ROI 均值不确定度及闭合差作为评定依据。</p>
+<h2 id="sec3">3. 研究区概况</h2>
+<p>两处重点监测对象同处一条深切割峡谷的两侧谷坡，谷坡陡峻、高差大。隧道口 1 位于峡谷西侧、朝向雷达的坡面；隧道口 2 位于峡谷东侧、背向雷达的坡面。两处对象的基本参数见表 3-1。</p>
+<p class="tbl-title">表 3-1  监测对象基本信息</p>
+<table>
+<tr><th>对象</th><th>经度范围 (°E)</th><th>纬度范围 (°N)</th><th>范围</th><th>高程 (m)</th><th>平均坡度 (°)</th><th>主坡向 (°)</th><th>局部入射角 (°)</th></tr>
+<tr><td>隧道口 1</td><td>95.76708 ~ 95.76820</td><td>30.06258 ~ 30.06356</td><td>约 109 × 110 m</td><td>3115.6 ~ 3256.4</td><td>45.5</td><td>292.9（西北，朝雷达）</td><td>31.15</td></tr>
+<tr><td>隧道口 2</td><td>95.77405 ~ 95.77461</td><td>30.06324 ~ 30.06372</td><td>约 54 × 54 m</td><td>3174.4 ~ 3234.2</td><td>43.4</td><td>101.8（东，背雷达）</td><td>86.23</td></tr>
+</table>
+<p>雷达几何参数：卫星视线方位角（地面指向卫星）ALOS = −106.78°（≡ 253.22°），入射角 ILOS = 47.05°，卫星位于研究区西偏南方向、向东偏北观测。该几何条件决定了峡谷西坡（隧道口 1）具有良好的观测灵敏度，而峡谷东坡（隧道口 2）处于背坡与雷达阴影区，观测能力显著受限。</p>
+<figure>
+  <img src="images/fig02.png" alt="图 2　隧道口 1、隧道口 2 像元分布" loading="lazy">
+  <figcaption>图 2　隧道口 1、隧道口 2 像元分布</figcaption>
+</figure><h2 id="sec4">4. 数据与方法</h2>
+<h3>4.1 数据源</h3>
+<p class="tbl-title">表 4-1  数据源与基本参数</p>
+<table>
+<tr><th>项目</th><th>参数</th></tr>
+<tr><td class="rowhead">卫星 / 波段</td><td>NISAR / L 波段（λ ≈ 23.8 cm）</td></tr>
+<tr><td class="rowhead">轨道方向</td><td>升轨</td></tr>
+<tr><td class="rowhead">影像时相</td><td>2026-08-13、2026-08-25、2026-09-06、2026-09-18、2026-09-30</td></tr>
+<tr><td class="rowhead">景数 / 重访</td><td>5 景 / 12 天</td></tr>
+<tr><td class="rowhead">外部 DEM</td><td>COP30_30m_30.08N_95.75E_30.05N_95.79E</td></tr>
+<tr><td class="rowhead">大气校正产品</td><td>GACOS（2026-08-13、2026-08-25、2026-09-06、2026-09-18；2026-09-30 缺失）</td></tr>
+<tr><td class="rowhead">研究区投影</td><td>WGS84 地理坐标；成果格网 474 × 381，像元 8.03 m</td></tr>
+</table>
+<h3>4.2 数据处理流程</h3>
+<p class="tbl-title">表 4-2  InSAR 数据处理流程</p>
+<table>
+<tr><th>步骤</th><th>处理环节</th><th>说明</th></tr>
+<tr><td class="rowhead">①</td><td>影像配准与干涉图生成</td><td>基于外部 DEM 精配准</td></tr>
+<tr><td class="rowhead">②</td><td>差分干涉与地形相位去除</td><td>去除平地相位与地形相位</td></tr>
+<tr><td class="rowhead">③</td><td>滤波与相干性估计</td><td>Goldstein 自适应滤波</td></tr>
+<tr><td class="rowhead">④</td><td>大气延迟校正</td><td>GACOS 水汽产品</td></tr>
+<tr><td class="rowhead">⑤</td><td>轨道精炼与重去平</td><td>外部GCP 42 点（cc &gt; 0.6）</td></tr>
+<tr><td class="rowhead">⑥</td><td>相位转位移+地理编码</td><td>相位转位移相干性阈值 0.25，格网 10 m；输出统一为 474 × 381，像元 8.03 m，WGS84</td></tr>
+<tr><td class="rowhead">⑦</td><td>时序累积</td><td>以 2026-08-13 为基准时相，逐时相累加各干涉对形变量，得各时相相对基准的累积形变</td></tr>
+</table>
+<h3>4.3 干涉对网络</h3>
+<p class="tbl-title">表 4-3  干涉对网络构成</p>
+<table>
+<tr><th>序号</th><th>干涉对</th><th>时间基线</th><th>用途</th></tr>
+<tr><td>1</td><td>0813-0825</td><td>12 d</td><td>链式时序对</td></tr>
+<tr><td>2</td><td>0825-0906</td><td>12 d</td><td>链式时序对</td></tr>
+<tr><td>3</td><td>0906-0918</td><td>12 d</td><td>链式时序对</td></tr>
+<tr><td>4</td><td>0918-0930</td><td>12 d</td><td>链式时序对</td></tr>
+<tr><td>5</td><td>0813-0906</td><td>24 d</td><td>冗余观测，用于闭合差检验</td></tr>
+</table>
+<p>闭合差定义为：</p>
+<p class="formula">闭合差 = (0813→0825) + (0825→0906) − (0813→0906)</p>
+<p>即两条 12 天链式对之和与独立 24 天对之差，理论上应等于零。</p>
+<h2 id="sec5">5. 成果与质量控制</h2>
+<h3>5.1 干涉对质量统计</h3>
+<p class="tbl-title">表 5-1  各干涉对质量统计（相干性为均值，精度为中位数）</p>
+<table>
+<tr><th>干涉对</th><th>时间基线</th><th>全图平均相干性</th><th>隧道口1 相干性</th><th>隧道口2 相干性</th><th>相位精度中位 (mm)</th><th>去平面 std (mm)</th><th>大气校正</th></tr>
+<tr><td>0813-0825</td><td>12 d</td><td>0.694</td><td>0.776</td><td>0.425</td><td>6.40</td><td>11.13</td><td>有</td></tr>
+<tr><td>0825-0906</td><td>12 d</td><td>0.654</td><td>0.710</td><td>0.469</td><td>7.04</td><td>12.70</td><td>有</td></tr>
+<tr><td>0906-0918</td><td>12 d</td><td>0.617</td><td>0.706</td><td>0.292</td><td>7.87</td><td>15.87</td><td>有</td></tr>
+<tr><td>0918-0930</td><td>12 d</td><td>0.565</td><td>0.635</td><td>0.403</td><td>9.21</td><td>18.20</td><td><span class="warn">无</span></td></tr>
+<tr><td>0813-0906</td><td>24 d</td><td>0.621</td><td>0.708</td><td>0.309</td><td>7.74</td><td>16.36</td><td>有</td></tr>
+</table>
+<p>由表可见，随着时间基线增大，全图平均相干性由 0.694 逐步降至 0.565，符合 L 波段在植被与陡坡区的失相干规律；0918-0930 因缺少 2026-09-30 的 GACOS 产品，未实施大气校正，是本次处理中唯一存在参数不一致的干涉对。</p>
+<figure>
+  <img src="images/fig03.png" alt="图 3　平均相干性空间分布" loading="lazy">
+  <figcaption>图 3　平均相干性空间分布</figcaption>
+</figure><h3>5.2 闭合差检验</h3>
+<p class="tbl-title">表 5-2  闭合差统计</p>
+<table>
+<tr><th>统计范围</th><th>闭合差均值 (mm)</th><th>空间 std (mm)</th><th>均值标准误 (mm)</th></tr>
+<tr><td>全图（474 × 381）</td><td>+0.65</td><td>21.79</td><td>±0.67</td></tr>
+<tr><td>隧道口 1</td><td>−8.95</td><td>4.58</td><td>±4.01</td></tr>
+<tr><td><span class="warn">隧道口 2</span></td><td><span class="warn">+39.57</span></td><td><span class="warn">39.19</span></td><td><span class="warn">±39.19</span></td></tr>
+</table>
+<p>全图闭合差均值为 +0.65 mm，仅为其空间标准差（21.79 mm）的 3%，且去平面处理后闭合差均值降至 +0.0007 mm，可视为零。</p>
+<h3>5.3 成果</h3>
+<p class="note"><b>说明：</b>鉴于隧道口 2处于背坡与雷达阴影区，观测能力显著受限，数据多为伪影，其相干性较低（0.29-0.47），闭环差+39.57，因此本次运算成果不可信，成果报告不予采纳。</p>
+<figure>
+  <img src="images/fig04.png" alt="图 4　卫星数据下载区域 48 天累积 LOS 形变空间分布（红 = 靠近卫星，蓝 = 远离卫星，方框为两处监测对象）" loading="lazy">
+  <figcaption>图 4　卫星数据下载区域 48 天累积 LOS 形变空间分布（红 = 靠近卫星，蓝 = 远离卫星，方框为两处监测对象）</figcaption>
+</figure><figure>
+  <img src="images/fig05.png" alt="图 5　隧道口 1 各像元 48 天累计 LOS 形变色带图（蓝 = 远离卫星，红 = 靠近卫星）" loading="lazy">
+  <figcaption>图 5　隧道口 1 各像元 48 天累计 LOS 形变色带图（蓝 = 远离卫星，红 = 靠近卫星）</figcaption>
+  <figcaption class="datalink"><a class="xlink" href="all.html" title="查看数据表">数据详见《隧道口1全像元LOS形变时序.xlsx》</a></figcaption>
+</figure><figure>
+  <img src="images/fig06.png" alt="图 6　隧道口 1 重点观察像元分布" loading="lazy">
+  <figcaption>图 6　隧道口 1 重点观察像元分布</figcaption>
+</figure><figure>
+  <img src="images/fig07.png" alt="图 7　隧道口 1 重点观察 8 像元 LOS 形变时序（2026-08-13 基准）" loading="lazy">
+  <figcaption>图 7　隧道口 1 重点观察 8 像元 LOS 形变时序（2026-08-13 基准）</figcaption>
+  <figcaption class="datalink"><a class="xlink" href="8.html" title="查看数据表">数据详见《隧道口1_重点观察8像元点_LOS形变时序.xlsx》</a></figcaption>
+</figure><h2 id="sec6">6. 结论与建议</h2>
+<ol style="list-style:none;padding-left:0;margin-left:0;">
+<li>（1）隧道口 1 在 2026-08-13 至 2026-09-30 的 48 天内，LOS 向累积形变为 +6.71 ± 7.76 mm，<span class="ok">未检测到统计显著形变</span>，形变幅度在 2 cm 量级以内。</li>
+<li>（2）隧道口 1 数据质量良好（平均相干性 0.71，相位精度中位数 5.82 ~ 8.80 mm），成果可直接用于边坡状态评估。</li>
+<li>（3）隧道口 2 的 InSAR 结果<span class="warn">不可采信</span>。数值上虽显示 −71.67 ± 39.05 mm，但相干性崩溃（0.38，cc &gt; 0.7 像元为 0%）；根本原因在于该处位于峡谷东侧背雷达坡（局部入射角 86.23°，阴影占比 20.3%），L 波段升轨几何不具备有效观测能力。</li>
+<li>（4）处理链路自洽：全图闭合差 +0.65 ± 0.67 mm。</li>
+<li>（5）建议补充获取 2026-09-30 的 GACOS 大气产品，对 0918-0930 重做大气校正，使 5 个干涉对的处理参数完全一致。</li>
+<li>（6）建议延长时序（不少于25景）并采用 PS-InSAR / 分布式散射体方法，以提高有效样本数与形变速率估计的可靠性；</li>
+<li>（7）建议隧道口 2 改用降轨数据或机载雷达进行补充监测；单轨 LOS 结果不宜直接解释为沉降量，如需垂直向形变应结合升降轨 LOS 观测联合求解。</li>
+</ol>
+<h2 id="sec7">7. 特别说明</h2>
+<p>为了长时序监测本点，在本次报告之前曾用ESA的哨兵-1数据对该点开展2025年1月至2026年9月的时序InSAR运算。但DMG隧道地处青藏高原的深沟、峡谷，地理位置特殊，隧道口1、2均无有效数据。</p>
+<figure>
+  <img src="images/fig08.png" alt="图 8　哨兵-1升轨28景PS-InSAR 点分布图" loading="lazy">
+  <figcaption>图 8　哨兵-1升轨28景PS-InSAR 点分布图</figcaption>
+</figure><figure>
+  <img src="images/fig09.png" alt="图 9　哨兵-1降轨31景PS-InSAR 点分布图" loading="lazy">
+  <figcaption>图 9　哨兵-1降轨31景PS-InSAR 点分布图</figcaption>
+</figure><p>因此本次只有采用NASA最新发布的NISAR卫星数据，开展以上运算。</p>
+<div class="endblock">
+<p class="right">报告完成日期：2026 年 10 月 07 日</p>
+<p class="right">编制单位：启睿方宇(成都)科技有限公司</p>
+</div>
+</div>
+</body>
+</html>
